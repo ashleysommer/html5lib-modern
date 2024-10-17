@@ -1,5 +1,5 @@
-html5lib
-========
+html5lib-modern
+===============
 
 .. image:: https://github.com/html5lib/html5lib-python/actions/workflows/python-tox.yml/badge.svg
     :target: https://github.com/html5lib/html5lib-python/actions/workflows/python-tox.yml
@@ -7,6 +7,11 @@ html5lib
 html5lib is a pure-python library for parsing HTML. It is designed to
 conform to the WHATWG HTML specification, as is implemented by all major
 web browsers.
+
+htm5lib-modern is designed as a drop-in replacement for ``html5lib`` that exposes a new
+``html5lib`` module without Python 2 support and without the legacy dependencies on
+``six``, and ``webencodings``. Note, you should not have the old deprecated ``html5lib``
+and ``html5lib-modern`` in your dependency tree at the same time, because they alias.
 
 
 Usage
@@ -78,15 +83,28 @@ More documentation is available at https://html5lib.readthedocs.io/.
 Installation
 ------------
 
-html5lib works on CPython 3.8+ and PyPy. To install:
+html5lib-modern works on CPython 3.8+ and PyPy. To install:
 
 .. code-block:: bash
 
-    $ pip install html5lib
+    $ pip install html5lib-moderen
 
 The goal is to support a (non-strict) superset of the versions that `pip
 supports
 <https://pip.pypa.io/en/stable/installing/#python-and-os-compatibility>`_.
+
+
+**NOTICE**:
+This ``html5lib`` fork exposes a new module named ``html5lib``, that does conflict in your
+dependency tree with the old ``html5lib``. That means if you have a different package in
+your tree that depends on the old ``html5lib``, and a new package that depends on
+``html5lib-modern``, then the old module may overwrite the new module, or vise versa.
+
+**FUTURE**:
+In html5lib-modern v2, the module name will be changed to ``html5lib_modern`` that
+requires you to change your ``import`` statement in your code. This is a tiny lapse
+in backward compatibility, but resolves the issue of module aliasing observed in v1.2.
+
 
 Optional Dependencies
 ---------------------
