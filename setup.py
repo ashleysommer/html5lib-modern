@@ -92,7 +92,7 @@ with open(join(here, "html5lib", "__init__.py"), "rb") as init_file:
 
 setup(name='html5lib',
       version=version,
-      url='https://github.com/html5lib/html5lib-python',
+      url='https://github.com/ashleysommer/html5lib-modern',
       license="MIT License",
       description='HTML parser based on the WHATWG HTML specification',
       long_description=long_description,
